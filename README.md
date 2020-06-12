@@ -1,6 +1,10 @@
 ## react-admin-system项目（大个博客系统）
 
+## `项目描述`
+
 该项目主要侧重基于React框架完成前端功能，目前后端使用mock假数据来模拟，后期会使用nodejs+mysql来搭建服务。
+
+技术栈：react+react-router-redux+antd框架+axiox网络请求
 
 该博客目前主要功能如下（后期可能会补充新功能）：
 
@@ -17,6 +21,8 @@
   + 更换头像
 
 
+
+## `项目搭建`
 
 ### `一、使用react-rewired配置基本环境`
 
