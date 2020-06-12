@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import { Switch, Route, Redirect } from 'react-router-dom'
+import { Frame } from './components'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { adminRoutes } from './routes'
+
+const menu = adminRoutes.filter(route => route.isNav === true);
+
+export default class App extends Component {
+  render() {
+    return (
+      <Frame menu={menu}>
+        <Switch>
+          {
+            adminRoutes.map(route => {
+              return <Route key={route.pathname} path={route.pathname} component={route.component} />
+            })
+          }
+          <Redirect from="/admin" to="/admin/dashboard" exact />
+          <Redirect to="/404" />
+        </Switch>
+      </Frame>
+    )
+  }
 }
-
-export default App;
