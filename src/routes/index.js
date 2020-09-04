@@ -1,13 +1,13 @@
 import {
-  Login,
   NotFound,
-  DashBoard,
+  Login,
+  Dashboard,
   ArticleList,
   ArticleEdit,
   Setting,
   Notification,
-  Profile,
-  NoAuth
+  NoAuth,
+  Profile
 } from '../views'
 
 export const mainRoutes = [{
@@ -20,32 +20,40 @@ export const mainRoutes = [{
 
 export const adminRoutes = [{
   pathname: '/admin/dashboard',
-  component: DashBoard,
+  component: Dashboard,
   isNav: true,
-  title: "仪表盘",
-  icon: "dashboard"
+  icon: 'dashboard',
+  title: '仪表盘',
+  roles: ['001','002','003']
 },{
   pathname: '/admin/article',
   component: ArticleList,
   isNav: true,
-  title: "文章管理",
-  icon: "unordered-list"
+  title: '文章管理',
+  icon: 'unordered-list',
+  exact: true,
+  roles: ['001','002']
 },{
   pathname: '/admin/article/edit/:id',
-  component: ArticleEdit
+  component: ArticleEdit,
+  roles: ['001','002']
+},{
+  pathname: '/admin/notifications',
+  component: Notification,
+  roles: ['001','002']
 },{
   pathname: '/admin/setting',
   component: Setting,
   isNav: true,
-  title: "设置",
-  icon: "setting"
-},{
-  pathname: '/admin/notifications',
-  component: Notification
+  icon: 'setting',
+  title: '设置',
+  roles: ['001']
 },{
   pathname: '/admin/profile',
-  component: Profile
+  component: Profile,
+  roles: ['001','002','003']
 },{
   pathname: '/admin/noauth',
-  component: NoAuth
+  component: NoAuth,
+  roles: ['001','002','003']
 }]
